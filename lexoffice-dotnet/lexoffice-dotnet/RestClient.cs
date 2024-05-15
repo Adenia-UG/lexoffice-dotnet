@@ -1,4 +1,6 @@
 ﻿using RestSharp;
+using RestSharp.Serialization.Json;
+using GcmSharp.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -53,9 +55,11 @@ namespace De.Roslan.LexofficeDotnet {
 
         public IRestResponse<T> SendPostRequest<T>(string resource, object data) {
             var req = new RestRequest(resource, Method.POST) {
-                RequestFormat = DataFormat.Json
+                RequestFormat = DataFormat.Json,
+                JsonSerializer = NewtonsoftJsonSerializer.Default,
+                DateFormat = "yyyy-MM-ddT00:00:00"
             }
-                .AddJsonBody(data)
+                .AddBody(data)
                 .AddHeader("Content-Type", "application/json");
 
             var response = _client.Post<T>(req);

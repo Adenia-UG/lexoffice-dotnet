@@ -1,5 +1,4 @@
 ﻿using De.Roslan.LexofficeDotnet.Endpoints;
-using De.Roslan.lexofficeDotnet.Enums;
 using De.Roslan.LexofficeDotnet.Enums;
 using De.Roslan.LexofficeDotnet.Models.Invoice;
 using De.Roslan.LexofficeDotnet.Models.VoucherList;
